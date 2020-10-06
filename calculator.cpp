@@ -101,6 +101,7 @@ int main()
                 default:
                     printf("Usuário seleciona opção que não existe");
             }
+            break;
 
         case 'b':
             switch(opcao2) {
@@ -113,6 +114,7 @@ int main()
                 default:
                     printf("Usuário seleciona opção que não existe");
             }
+            break;
 
         case 'x':
             switch(opcao2) {
@@ -125,6 +127,7 @@ int main()
                 default:
                     printf("Usuário seleciona opção que não existe");
             }
+            break;
 
     }
     printf("Elemento 1 = %c, elemento 2 = %c \n", elemento1, elemento2);
