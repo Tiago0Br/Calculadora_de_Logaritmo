@@ -3,14 +3,14 @@
 #include <stdlib.h>
 using namespace std;
 
-// DeclaraÁ„o das funÁıes
+// Declara√ß√£o das fun√ß√µes
 void imprimir(string texto);
 void pula_linha();
 void mensagem();
 
 int main()
 {
-    // DeclaraÁ„o de vari·veis
+    // Declara√ß√£o de vari√°veis
     int num1, num2, opcao1, opcao2;
     char elemento1, elemento2;
 
@@ -18,16 +18,16 @@ int main()
     imprimir("    b");
     pula_linha();
 
-    imprimir("Qual elemento vocÍ deseja atribuir um valor?");
-    // Lista os trÍs elementos do logaritmo: Logaritmando, Base e logaritmo
+    imprimir("Qual elemento voc√™ deseja atribuir um valor?");
+    // Lista os tr√™s elementos do logaritmo: Logaritmando, Base e logaritmo
     imprimir("1) a - Logaritmando");
     imprimir("2) b - Base");
     imprimir("3) x - Logaritmo");
 
-    // O usu·rio escolhe apenas uma das trÍs opÁıes
+    // O usu√°rio escolhe apenas uma das tr√™s op√ß√µes
     scanf("%d", &opcao1);
 
-    // O switch identifica o elemento escolhido com base no que o usu·rio digitou
+    // O switch identifica o elemento escolhido com base no que o usu√°rio digitou
     switch(opcao1) {
         case 1:
             elemento1 = 'a';
@@ -45,13 +45,13 @@ int main()
             break;
 
         default:
-            imprimir("Usu·rio digita um valor inv·lido");
+            imprimir("Usu√°rio digita um valor inv√°lido");
     }
 
-    // Atribui a vari·vel num1 o n˙mero que o usu·rio digitou
+    // Atribui a vari√°vel num1 o n√∫mero que o usu√°rio digitou
     scanf("%d", &num1);
     pula_linha();
-    // O usu·rio escolhe outro elemento para atribuir um valor, n„o podendo escolher o mesmo elemento
+    // O usu√°rio escolhe outro elemento para atribuir um valor, n√£o podendo escolher o mesmo elemento
     switch (elemento1) {
         case 'a':
             printf("log %d = x \n", num1);
@@ -84,7 +84,7 @@ int main()
             break;
 
         default:
-            imprimir("Usu·rio digita um valor inv·lido");
+            imprimir("Usu√°rio digita um valor inv√°lido");
     }
 
     scanf("%d", &opcao2);
@@ -99,7 +99,7 @@ int main()
                     elemento2 = 'x';
                     break;
                 default:
-                    printf("Usu·rio seleciona opÁ„o que n„o existe");
+                    printf("Usu√°rio seleciona op√ß√£o que n√£o existe");
             }
 
         case 'b':
@@ -111,7 +111,7 @@ int main()
                     elemento2 = 'x';
                     break;
                 default:
-                    printf("Usu·rio seleciona opÁ„o que n„o existe");
+                    printf("Usu√°rio seleciona op√ß√£o que n√£o existe");
             }
 
         case 'x':
@@ -123,11 +123,31 @@ int main()
                     elemento2 = 'b';
                     break;
                 default:
-                    printf("Usu·rio seleciona opÁ„o que n„o existe");
+                    printf("Usu√°rio seleciona op√ß√£o que n√£o existe");
             }
 
     }
-    printf("Elementos escolhidos: %c e %c", elemento1, elemento2);
+    printf("Elemento 1 = %c, elemento 2 = %c \n", elemento1, elemento2);
+    // Logaritmando e base (a e c)
+    if ((elemento1 == 'a' && elemento2 == 'b') || (elemento1 == 'b' && elemento2 == 'a')) {
+        imprimir("Logaritmando e base");
+    }
+
+    // Base e logaritmo
+    else if ((elemento1 == 'b' && elemento2 == 'x') || (elemento1 == 'x' && elemento2 == 'b')) {
+        imprimir("Base e logaritmo");
+    }
+
+    // Logaritmando e logaritmo
+    else if ((elemento1 == 'a' && elemento2 == 'x') || (elemento1 == 'x' && elemento2 == 'a')) {
+        imprimir("Logaritmando e logaritmo");
+    }
+
+    // Valor inv√°lido
+    else {
+        imprimir("erro");
+    }
+    
     return 0;
 }
 
@@ -143,5 +163,5 @@ void pula_linha() {
 
 // Exibe mensagem para escolher elemento
 void mensagem() {
-    printf("Qual outro elemento vocÍ deseja atribuir um valor? \n");
+    printf("Qual outro elemento voc√™ deseja atribuir um valor? \n");
 }
