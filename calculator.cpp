@@ -20,8 +20,8 @@ int main()
 
     imprimir("Qual elemento você deseja atribuir um valor?");
     // Lista os três elementos do logaritmo: Logaritmando, Base e logaritmo
-    imprimir("1) a - Logaritmando");
-    imprimir("2) b - Base");
+    imprimir("1) a - Base");
+    imprimir("2) b - Logaritmando");
     imprimir("3) x - Logaritmo");
 
     // O usuário escolhe apenas uma das três opções
@@ -31,12 +31,12 @@ int main()
     switch(opcao1) {
         case 1:
             elemento1 = 'a';
-            imprimir("Digite o valor do logaritmando:");
+            imprimir("Digite o valor da base:");
             break;
 
         case 2:
             elemento1 = 'b';
-            imprimir("Digite o valor da base:");
+            imprimir("Digite o valor do logaritmando:");
             break;
 
         case 3:
@@ -53,23 +53,23 @@ int main()
     pula_linha();
     // O usuário escolhe outro elemento para atribuir um valor, não podendo escolher o mesmo elemento
     switch (elemento1) {
-        case 'a':
+        case 'b':
             printf("log %d = x \n", num1);
             imprimir("    b");
             pula_linha();
 
             mensagem();
-            imprimir("1) b - Base");
+            imprimir("1) b - Logaritmando");
             imprimir("2) x - Logaritmo");
             break;
 
-        case 'b':
+        case 'a':
             imprimir("log a = x");
             printf("    %d \n", num1);
             pula_linha();
 
             mensagem();
-            imprimir("1) a - Logaritmando");
+            imprimir("1) a - Base");
             imprimir("2) x - Logaritmo");
             break;
 
@@ -79,8 +79,8 @@ int main()
             pula_linha();
 
             mensagem();
-            imprimir("1) a - Logaritmando");
-            imprimir("2) b - Base");
+            imprimir("1) a - Base");
+            imprimir("2) b - Logaritmando");
             break;
 
         default:
@@ -99,7 +99,7 @@ int main()
                     elemento2 = 'x';
                     break;
                 default:
-                    printf("Usuário seleciona opção que não existe");
+                    imprimir("Usuário seleciona opção que não existe");
             }
             break;
 
@@ -112,7 +112,7 @@ int main()
                     elemento2 = 'x';
                     break;
                 default:
-                    printf("Usuário seleciona opção que não existe");
+                    imprimir("Usuário seleciona opção que não existe");
             }
             break;
 
@@ -125,12 +125,26 @@ int main()
                     elemento2 = 'b';
                     break;
                 default:
-                    printf("Usuário seleciona opção que não existe");
+                    imprimir("Usuário seleciona opção que não existe");
             }
             break;
 
     }
+    if (elemento2 == 'a') {
+        imprimir("Digite o valor da base: ");
+    } else if (elemento2 == 'b') {
+        imprimir("Digite o valor do logaritmando: ");
+    } else if (elemento2 == 'x') {
+        imprimir("Digite o valor do logaritmo");
+    } else {
+        imprimir("Valor inválido");
+    }
+
+    scanf("%d", &num2);
+
     printf("Elemento 1 = %c, elemento 2 = %c \n", elemento1, elemento2);
+    printf("Valor do elemento1 = %d, valor do elemento2 = %d \n", num1, num2);
+
     // Logaritmando e base (a e c)
     if ((elemento1 == 'a' && elemento2 == 'b') || (elemento1 == 'b' && elemento2 == 'a')) {
         imprimir("Logaritmando e base");
@@ -138,21 +152,22 @@ int main()
 
     // Base e logaritmo
     else if ((elemento1 == 'b' && elemento2 == 'x') || (elemento1 == 'x' && elemento2 == 'b')) {
-        imprimir("Base e logaritmo");
+        imprimir("Logaritmando e logaritmo");
     }
 
     // Logaritmando e logaritmo
     else if ((elemento1 == 'a' && elemento2 == 'x') || (elemento1 == 'x' && elemento2 == 'a')) {
-        imprimir("Logaritmando e logaritmo");
+        imprimir("Base e logaritmo");
     }
 
     // Valor inválido
     else {
         imprimir("erro");
     }
-    
     return 0;
 }
+
+// Funções criadas
 
 // Exibe uma mensagem qualquer dando quebra de linha na final dela
 void imprimir(string texto) {
