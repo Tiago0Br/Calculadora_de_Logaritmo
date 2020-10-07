@@ -14,8 +14,8 @@ int main()
     int num1, num2, opcao1, opcao2;
     char elemento1, elemento2;
 
-    imprimir("log a = x");
-    imprimir("    b");
+    imprimir("log b = x");
+    imprimir("    a");
     pula_linha();
 
     imprimir("Qual elemento você deseja atribuir um valor?");
@@ -53,9 +53,9 @@ int main()
     pula_linha();
     // O usuário escolhe outro elemento para atribuir um valor, não podendo escolher o mesmo elemento
     switch (elemento1) {
-        case 'b':
-            printf("log %d = x \n", num1);
-            imprimir("    b");
+        case 'a':
+            imprimir("log b = x");
+            printf("    %d \n", num1);
             pula_linha();
 
             mensagem();
@@ -63,9 +63,9 @@ int main()
             imprimir("2) x - Logaritmo");
             break;
 
-        case 'a':
-            imprimir("log a = x");
-            printf("    %d \n", num1);
+        case 'b':
+            printf("log %d = x \n", num1);
+            imprimir("    a");
             pula_linha();
 
             mensagem();
@@ -74,8 +74,8 @@ int main()
             break;
 
         case 'x':
-            printf("log a = %d \n", num1);
-            imprimir("    b");
+            printf("log b = %d \n", num1);
+            imprimir("    a");
             pula_linha();
 
             mensagem();
