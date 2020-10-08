@@ -4,182 +4,66 @@
 using namespace std;
 
 // Declaração das funções
-void imprimir(string texto);
-void pula_linha();
-void mensagem();
+void escrever(string texto);
 
-int main()
-{
+int main() {
     // Declaração de variáveis
-    int num1, num2, opcao1, opcao2;
-    char elemento1, elemento2;
+    int num1, num2, opcao;
 
-    imprimir("log b = x");
-    imprimir("    a");
-    pula_linha();
+    escrever("Log b = x");
+    escrever("    a");
+    escrever("Quais elementos você deseja atribuir um valor?");
 
-    imprimir("Qual elemento você deseja atribuir um valor?");
-    // Lista os três elementos do logaritmo: Logaritmando, Base e logaritmo
-    imprimir("1) a - Base");
-    imprimir("2) b - Logaritmando");
-    imprimir("3) x - Logaritmo");
+    // Listar opções para o usuário escolher
+    escrever("1)a - Base e b - Logaritmando");
+    escrever("2)a - Base e x - Logaritmo");
+    escrever("3)b - Logaritmando e x - logaritmo");
 
-    // O usuário escolhe apenas uma das três opções
-    scanf("%d", &opcao1);
+    scanf("%d", &opcao);
 
-    // O switch identifica o elemento escolhido com base no que o usuário digitou
-    switch(opcao1) {
+    switch(opcao) {
         case 1:
-            elemento1 = 'a';
-            imprimir("Digite o valor da base:");
+            printf("Digite o valor da base: ");
+            scanf("%d", &num1);
+            printf("Log b = x \n");
+            printf("    %d \n\n", num1);
+            printf("Digite o valor do logaritmando: ");
+            scanf("%d", &num2);
+            printf("Log %d = x \n", num2);
+            printf("    %d \n\n", num1);
             break;
 
         case 2:
-            elemento1 = 'b';
-            imprimir("Digite o valor do logaritmando:");
+            printf("Digite o valor da base: ");
+            scanf("%d", &num1);
+            printf("Log b = x \n");
+            printf("    %d \n\n", num1);
+            printf("Digite o valor do Logaritmo: ");
+            scanf("%d", &num2);
+            printf("Log b = %d \n", num2);
+            printf("    %d \n\n", num1);
             break;
 
         case 3:
-            elemento1 = 'x';
-            imprimir("Digite o valor do logaritmo:");
+            printf("Digite o valor do logaritmando: ");
+            scanf("%d", &num1);
+            printf("Log %d = x \n", num1);
+            printf("    a \n\n");
+            printf("Digite o valor do logaritmo: ");
+            scanf("%d", &num2);
+            printf("Log %d = %d \n", num1, num2);
+            printf("    a \n\n");
             break;
 
         default:
-            imprimir("Usuário digita um valor inválido");
+            // Deve haver um tratamento de erros caso o usuário digite um valor inválido
+            printf("Valor inválido.");
     }
 
-    // Atribui a variável num1 o número que o usuário digitou
-    scanf("%d", &num1);
-    pula_linha();
-    // O usuário escolhe outro elemento para atribuir um valor, não podendo escolher o mesmo elemento
-    switch (elemento1) {
-        case 'a':
-            imprimir("log b = x");
-            printf("    %d \n", num1);
-            pula_linha();
-
-            mensagem();
-            imprimir("1) b - Logaritmando");
-            imprimir("2) x - Logaritmo");
-            break;
-
-        case 'b':
-            printf("log %d = x \n", num1);
-            imprimir("    a");
-            pula_linha();
-
-            mensagem();
-            imprimir("1) a - Base");
-            imprimir("2) x - Logaritmo");
-            break;
-
-        case 'x':
-            printf("log b = %d \n", num1);
-            imprimir("    a");
-            pula_linha();
-
-            mensagem();
-            imprimir("1) a - Base");
-            imprimir("2) b - Logaritmando");
-            break;
-
-        default:
-            imprimir("Usuário digita um valor inválido");
-    }
-
-    scanf("%d", &opcao2);
-
-    switch(elemento1) {
-        case 'a':
-            switch(opcao2) {
-                case 1:
-                    elemento2 = 'b';
-                    break;
-                case 2:
-                    elemento2 = 'x';
-                    break;
-                default:
-                    imprimir("Usuário seleciona opção que não existe");
-            }
-            break;
-
-        case 'b':
-            switch(opcao2) {
-                case 1:
-                    elemento2 = 'a';
-                    break;
-                case 2:
-                    elemento2 = 'x';
-                    break;
-                default:
-                    imprimir("Usuário seleciona opção que não existe");
-            }
-            break;
-
-        case 'x':
-            switch(opcao2) {
-                case 1:
-                    elemento2 = 'a';
-                    break;
-                case 2:
-                    elemento2 = 'b';
-                    break;
-                default:
-                    imprimir("Usuário seleciona opção que não existe");
-            }
-            break;
-
-    }
-    if (elemento2 == 'a') {
-        imprimir("Digite o valor da base: ");
-    } else if (elemento2 == 'b') {
-        imprimir("Digite o valor do logaritmando: ");
-    } else if (elemento2 == 'x') {
-        imprimir("Digite o valor do logaritmo");
-    } else {
-        imprimir("Valor inválido");
-    }
-
-    scanf("%d", &num2);
-
-    printf("Elemento 1 = %c, elemento 2 = %c \n", elemento1, elemento2);
-    printf("Valor do elemento1 = %d, valor do elemento2 = %d \n", num1, num2);
-
-    // Logaritmando e base (a e c)
-    if ((elemento1 == 'a' && elemento2 == 'b') || (elemento1 == 'b' && elemento2 == 'a')) {
-        imprimir("Logaritmando e base");
-    }
-
-    // Base e logaritmo
-    else if ((elemento1 == 'b' && elemento2 == 'x') || (elemento1 == 'x' && elemento2 == 'b')) {
-        imprimir("Logaritmando e logaritmo");
-    }
-
-    // Logaritmando e logaritmo
-    else if ((elemento1 == 'a' && elemento2 == 'x') || (elemento1 == 'x' && elemento2 == 'a')) {
-        imprimir("Base e logaritmo");
-    }
-
-    // Valor inválido
-    else {
-        imprimir("erro");
-    }
     return 0;
 }
 
-// Funções criadas
-
-// Exibe uma mensagem qualquer dando quebra de linha na final dela
-void imprimir(string texto) {
+// Escreve um texto passado como parâmetro quebrando linha no final
+void escrever(string texto) {
     cout << texto << "\n";
-}
-
-// Faz quebra de linha
-void pula_linha() {
-    printf("\n");
-}
-
-// Exibe mensagem para escolher elemento
-void mensagem() {
-    printf("Qual outro elemento você deseja atribuir um valor? \n");
 }
