@@ -9,8 +9,8 @@ void escrever(string texto);
 
 int main() {
     // Declaração de variáveis
-    int num1, num2, opcao;
-    float res;
+    float b, a, x;
+    int opcao;
 
     escrever("Log b = x");
     escrever("    a");
@@ -27,72 +27,81 @@ int main() {
         // Base e Logaritmando
         case 1:
             printf("Digite o valor da base: ");
-            scanf("%d", &num1);
+            scanf("%f", &a);
             printf("Log b = x \n");
-            printf("    %d \n\n", num1);
+            printf("    %.2f \n\n", a);
             printf("Digite o valor do logaritmando: ");
-            scanf("%d", &num2);
-            printf("Log %d = x \n", num2);
-            printf("    %d \n\n", num1);
+            scanf("%f", &b);
+            printf("Log %.2f = x \n", b);
+            printf("    %.2f \n\n", a);
 
-            if(num1==1) {
+            if(a==1) {
                 printf("A base não pode ser igual a 1! \n");
             }
 
-            else if(num1==num2){
+            else if(a==b){
                 printf("Quando o logaritmando e a base forem iguais o logaritmo será 1 \n");
             }
 
-            else if (num2==1) {
+            else if (b==1) {
                 printf("Quando logaritmando for 1 o logaritmo sempre será 0 \n");
             }
 
             else {
             // calcular o valor x para dar o resultado
-                res = log(num2)/log(num1);
-                printf("%.2f \n", res);
+                x = log(b)/log(a);
+                printf("%.2f \n", x);
             }
             break;
 
-        // Base e Logaritmo
         case 2:
+            // Base e logaritmo
             printf("Digite o valor da base: ");
-            scanf("%d", &num1);
+            scanf("%f", &a);
             printf("Log b = x \n");
-            printf("    %d \n\n", num1);
+            printf("    %.2f \n\n", a);
             printf("Digite o valor do Logaritmo: ");
-            scanf("%d", &num2);
-            printf("Log b = %d \n", num2);
-            printf("    %d \n\n", num1);
+            scanf("%f", &x);
+            printf("Log b = %.2f \n", x);
+            printf("    %.2f \n\n", a);
 
-            if (num2==0){
+            if (x==0){
                 printf ("Todo logaritmo = 0 o logaritmando será 1.\n");
-            } else if(num1==1) {
+            } else if(a==1) {
                 printf("A base não pode ser igual a 1! \n");
             }
 
+
             else {
-                res = num1;
-                for(int i=0; i<(num2-1); i++) {
-                    res *= num1;
+                b = 1;
+                for(int i=0; i<(x); i++) {
+                    b *= a;
                 }
-                printf("O logaritmando de base %d é %.2f", num1, res);
+                printf("O logaritmando de base %.2f é %.2f", a, b);
             }
             break;
 
-        // Logaritmando e Logaritmo
         case 3:
+            // Logaritmando e logarito
             printf("Digite o valor do logaritmando: ");
-            scanf("%d", &num1);
-            printf("Log %d = x \n", num1);
+            scanf("%f", &b);
+            printf("Log %.2f = x \n", b);
             printf("    a \n\n");
             printf("Digite o valor do logaritmo: ");
-            scanf("%d", &num2);
-            printf("Log %d = %d \n", num1, num2);
+            scanf("%f", &x);
+            printf("Log %.2f = %.2f \n", b, x);
             printf("    a \n\n");
-            break;
 
-            // Em progresso
+            if(x==1){
+                printf("Se o Logaritmo = 1, Então a Base = %.2f. \n", b);
+            }
+            else{
+                a = pow(b, 1.0/x);
+                printf("Log: %.2f = %.2f \n", b, x);
+                printf("Base: %.2f", a);
+            }
+
+            break;
         default:
             // Deve haver um tratamento de erros caso o usuário digite um valor inválido
             printf("Valor inválido.");
