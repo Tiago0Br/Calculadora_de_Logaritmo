@@ -41,6 +41,7 @@ int main() {
 
             else if(a==b){
                 printf("Quando o logaritmando e a base forem iguais o logaritmo será 1 \n");
+                x = 1;
             }
 
             else if (b==1) {
@@ -50,8 +51,12 @@ int main() {
             else {
             // calcular o valor x para dar o resultado
                 x = log(b)/log(a);
-                printf("%.2f \n", x);
+                printf("Logaritmo = %.2f \n", x);
             }
+
+            printf("\nLog %.2f = %.2f \n", b, x);
+            printf("    %.2f", a);
+
             break;
 
         case 2:
@@ -69,16 +74,16 @@ int main() {
                 printf ("Todo logaritmo = 0 o logaritmando será 1.\n");
             } else if(a==1) {
                 printf("A base não pode ser igual a 1! \n");
-            }
-
-
-            else {
+            } else {
                 b = 1;
                 for(int i=0; i<(x); i++) {
                     b *= a;
                 }
                 printf("O logaritmando de base %.2f é %.2f", a, b);
             }
+
+            printf("\nLog %.2f = %.2f \n", b, x);
+            printf("    %.2f", a);
             break;
 
         case 3:
@@ -98,9 +103,11 @@ int main() {
             else{
                 a = pow(b, 1.0/x);
                 printf("Log: %.2f = %.2f \n", b, x);
-                printf("Base: %.2f", a);
+                printf("Base: %.2f \n", a);
             }
 
+            printf("\nLog %.2f = %.2f \n", b, x);
+            printf("    %.2f", a);
             break;
         default:
             // Deve haver um tratamento de erros caso o usuário digite um valor inválido
